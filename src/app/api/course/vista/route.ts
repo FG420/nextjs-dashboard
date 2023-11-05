@@ -8,16 +8,11 @@ connect()
 
 export async function GET() {
     try {
-        
-        // .map((e)=> e.startingDate.toLocaleString() +' '+ e.endingDate.toLocaleString())
-        
-        const startDate = new Date()
-        const endDate = new Date()
-        
-        const courses = await CourseModel.find()
+        const data = await CourseModel.find()
+        // const courses = await data.map((e) => e.name + ' ' + e.startingDate.toLocaleString() + ' ' + e.endingDate.toLocaleString() + ' ' + 'Min Partecipants: ' + e.minRequired)
 
-        
-        return NextResponse.json({courses}, {status: 200})
+
+        return NextResponse.json({ data }, { status: 200 })
 
     } catch (error: any) {
         return NextResponse.json({ error: error.message }, { status: 500 })

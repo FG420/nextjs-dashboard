@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { type } from "os";
 
 const courseSchema = new mongoose.Schema({
     name: {
@@ -23,6 +24,12 @@ const courseSchema = new mongoose.Schema({
 //     return `${this.startingDate.toLocaleDateString()}`
 // })
 
+export type Course = {
+    name: string,
+    startingDate: Date | string,
+    endingDate: Date | string,
+    minRequired: number
+}
 
 
 const CourseModel = mongoose.models.courses || mongoose.model('courses', courseSchema)
