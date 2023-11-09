@@ -54,15 +54,15 @@ export default function VistaCoursesPage() {
         <div className="flex flex-wrap justify-evenly mt-10">
             {/* <button className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-6 m-4  rounded border-2 border-gray-500'>Add Course</button> */}
             {courses.map((course, index) => (
-                <div key={index} className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-6 m-4 bg-gray-700 border-2 border-gray-500 rounded-lg '>
-                    <h1 className="text-white font-bold flex justify-evenly">{course.name.toUpperCase()}</h1>
+                <div key={index} className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 py-8 px-2 m-4 bg-gray-700 border-2 border-gray-500 rounded-lg '>
+                    <h1 className="text-white font-bold flex justify-evenly text-center my-4">{course.name.toUpperCase()}</h1>
                     <p className="text-white flex justify-evenly">Starting Date: {new Date(course.startingDate).toLocaleString()}</p>
                     <p className="text-white flex justify-evenly">Ending Date: {new Date(course.endingDate).toLocaleString()}</p>
                     <p className="text-white flex justify-evenly">Partecipants Required: {course.minRequired} min.</p>
                     {/* <p className="text-white">id: {course.id}</p> */}
                     <div className='flex justify-evenly'>
-                        <button className=' font-bold bg-orange-600 text-white rounded-full p-1 mt-5 w-24 hover:bg-orange-400 '><Link href={`/${course.id}`}>Details</Link></button>
-                        <button className=' font-bold bg-orange-600 text-white rounded-full p-1 mt-5 w-24 hover:bg-orange-400 '>Delete</button>
+                        <button className=' font-bold bg-orange-600 text-white rounded-full p-1 mt-7 w-28 hover:bg-orange-400 '><Link href={`/${course.id}`}>Details</Link></button>
+                        <button className=' font-bold bg-orange-600 text-white rounded-full p-1 mt-7 w-28 hover:bg-orange-400 '>Delete</button>
                     </div>
                 </div>
             ))}
