@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { ObjectId } from "mongoose";
 import { type } from "os";
 
 const courseSchema = new mongoose.Schema({
@@ -28,7 +28,8 @@ export type Course = {
     name: string,
     startingDate: Date | string,
     endingDate: Date | string,
-    minRequired: number
+    minRequired: number,
+    id: ObjectId | string
 }
 
 

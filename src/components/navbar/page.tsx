@@ -16,9 +16,10 @@ export default function Navbar() {
     }
 
     return (
-        <div className="bg-orange-700 p-5 text-right">
-            <ul className="">
-                <span className="text-white mx-2">
+        <div className="bg-orange-700 p-6 w-full">
+            <ul className="flex justify-end">
+                <span className="mr-auto ml-24">Logo</span>
+                <span className="text-white mx-20">
                     {isFormOpen ? (
                         <div className="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center">
                             <div className="bg-gray-700 p-3 rounded">
@@ -30,8 +31,7 @@ export default function Navbar() {
                         <button onClick={handleAddClick}>Create Course</button>
                     )}
                 </span>
-                <span className="mx-2">Profile</span>
-                <span></span>
+                <span className="mx-20">Profile</span>
             </ul>
         </div>
     )
