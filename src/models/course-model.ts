@@ -1,5 +1,4 @@
 import mongoose, { ObjectId } from "mongoose";
-import { type } from "os";
 
 const courseSchema = new mongoose.Schema({
     name: {
@@ -17,18 +16,20 @@ const courseSchema = new mongoose.Schema({
     minRequired: {
         type: Number,
         required: [true, 'Provide a minimum number of people']
+    },
+    minAge : {
+        type: Number,
+        required: [true, 'Provide a minimum age for participate']
     }
 })
 
-// courseSchema.virtual('courseStarts').get(function () {
-//     return `${this.startingDate.toLocaleDateString()}`
-// })
 
 export type Course = {
     name: string,
     startingDate: Date | string,
     endingDate: Date | string,
     minRequired: number,
+    minAge: number,
     id: ObjectId | string
 }
 
