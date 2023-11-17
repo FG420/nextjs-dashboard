@@ -40,7 +40,7 @@ export default function LoginPage() {
     return (
         <div className='animation'>
             <div className="flex flex-col items-center justify-center h-screen">
-                <h1 className='text-6xl font-semibold mb-20'>Forgot Password</h1>
+                <h1 className='text-6xl tab-screen:text-4xl font-semibold mb-20'>Forgot Password</h1>
                 <form className="w-90 bg-gray-700 rounded-lg shadow-lg px-8 pt-8 pb-8 mx-auto">
                     <div className="mb-8 ">
                         <label className="flex justify-center text-orange-400 font-bold mb-2" htmlFor="username">

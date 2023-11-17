@@ -18,6 +18,9 @@ const config: Config = {
       },
       width: {
         '90': '372px',
+      },
+      screens: {
+        'tab-screen': { 'raw': '(max-width: 720px)' },
       }
     },
   },
