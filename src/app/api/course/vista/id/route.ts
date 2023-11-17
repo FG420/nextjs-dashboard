@@ -8,10 +8,10 @@ connect()
 
 export async function GET(req : NextRequest) {
     try {
-        const reqId = req
+        const {reqId} = await req.json()
         
         // const courseId = await (await CourseModel.find()).map((e) => e._id)
-        const data = await CourseModel.findById(reqId)
+        const data = await CourseModel.find({_id: reqId})
 
         return NextResponse.json({ data }, { status: 200 })
 
