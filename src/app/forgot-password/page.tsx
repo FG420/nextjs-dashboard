@@ -41,7 +41,7 @@ export default function LoginPage() {
         <div className='animation'>
             <div className="flex flex-col items-center justify-center h-screen">
                 <h1 className='text-6xl font-semibold mb-20'>Forgot Password</h1>
-                <form className="w-2/3 md:w-2/3 lg:w-1/5 bg-gray-700 rounded-lg shadow-lg px-8 pt-8 pb-8 mx-auto">
+                <form className="w-90 bg-gray-700 rounded-lg shadow-lg px-8 pt-8 pb-8 mx-auto">
                     <div className="mb-8 ">
                         <label className="flex justify-center text-orange-400 font-bold mb-2" htmlFor="username">
                             Username
@@ -63,7 +63,7 @@ export default function LoginPage() {
                     </div>
                     <p className="text-red-500 text-sm italic py-4 text-center" onChange={() => setError(true)}>{error ? 'The passwords have errors' : ''}</p>
                     <div className="flex items-center justify-between mt-5">
-                        <button className="mx-auto font-bold border-2 border-orange-500 rounded-full bg-orange-600 p-2 w-40 text-white hover:text-white hover:bg-orange-500 shadow hover:shadow-gray-400" type="button" onClick={onForgotPassword}>{buttonDisabled ? 'Fill the fields' : 'Submit'}</button>
+                        <button className="mx-auto font-bold border-2 border-orange-500 rounded-full bg-orange-600 p-2 w-40 text-white hover:text-white hover:bg-orange-500 shadow hover:hover:shadow-tot-gray" type="button" onClick={onForgotPassword}>{buttonDisabled ? 'Fill the fields' : 'Submit'}</button>
                     </div>
                 </form>
             </div>
