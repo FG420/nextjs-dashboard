@@ -15,7 +15,8 @@ export default function NewCoursesPage() {
         startingDate: '',
         endingDate: '',
         minRequired: '',
-        minAge: ''
+        minAge: '',
+        description: ''
     })
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const [error, setError] = useState(false)
@@ -33,7 +34,7 @@ export default function NewCoursesPage() {
     }
 
     useEffect(() => {
-        if (course.name.length > 0 && course.startingDate.length > 0 && course.endingDate.length > 0 && course.minRequired.length !== null) {
+        if (course.name.length > 0 && course.startingDate.length > 0 && course.endingDate.length > 0 && course.minRequired.length !== null && course.description.length > 0) {
             setButtonDisabled(false)
         } else {
             setButtonDisabled(true)
@@ -77,6 +78,12 @@ export default function NewCoursesPage() {
                             <input className="w-1/2 mr-2 px-2 py-2 border border-gray-400 rounded-full text-gray-700 font-semibold" id="start_date" name="start_date" type="datetime-local" value={course.startingDate} onChange={(e) => setCourse({ ...course, startingDate: e.target.value })} required />
                             <input className="w-1/2 ml-2 px-2 py-2 border border-gray-400 rounded-full text-gray-700 font-semibold" id="end_date" name="end_date" type="datetime-local" value={course.endingDate} onChange={(e) => setCourse({ ...course, endingDate: e.target.value })} required />
                         </div>
+                    </div>
+                    <div className="mb-8 mt-8 ">
+                        <label className="block text-white font-bold mb-2 text-center" htmlFor="title">
+                            Description
+                        </label>
+                        <input className="w-full px-3 py-2 border border-gray-400 rounded-full text-gray-700 font-semibold" id="title" name="title" type="text" placeholder="Course's name" value={course.description} onChange={(e) => setCourse({ ...course, description: e.target.value })} required />
                     </div>
                     <div className="flex justify-center mt-14">
                         <button className="bg-orange-600  hover:bg-orange-700 hover:shadow-gray-400  text-white font-bold py-2 px-4 border-orange-500 border-2 rounded-full" type="submit" onClick={newCourse}>{buttonDisabled ? 'Fill the fields' : 'Create Course'}</button>

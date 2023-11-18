@@ -17,11 +17,33 @@ const courseSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'Provide a minimum number of people']
     },
-    minAge : {
+    minAge: {
         type: Number,
         required: [true, 'Provide a minimum age for participate']
+    },
+    description: {
+        type: String,
+        required: [true, 'Provide a description for the course']
     }
 })
+
+// courseSchema.set('toJSON', {
+//     virtuals: true,
+//     transform: (_, ret) => {
+//         delete ret._id;
+//         delete ret.__v;
+//         return ret;
+//     }
+// });
+
+// courseSchema.set('toObject', {
+//     virtuals: true,
+//     transform: (_, ret) => {
+//         delete ret._id;
+//         delete ret.__v;
+//         return ret;
+//     }
+// });
 
 
 export type Course = {
@@ -30,6 +52,7 @@ export type Course = {
     endingDate: Date | string,
     minRequired: number,
     minAge: number,
+    description: string,
     id: ObjectId | string
 }
 

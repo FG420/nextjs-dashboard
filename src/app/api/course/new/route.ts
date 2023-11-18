@@ -8,7 +8,7 @@ connect()
 
 export async function POST(req: NextRequest) {
     try {
-        const { name, startingDate, endingDate, minRequired, minAge } = await req.json();
+        const { name, startingDate, endingDate, minRequired, minAge, description } = await req.json();
         const validateCourse = await CourseModel.findOne({ name });
         if (validateCourse) {
             return NextResponse.json({ error: 'Course already exists' }, { status: 400 })
@@ -36,7 +36,8 @@ export async function POST(req: NextRequest) {
             startingDate,
             endingDate,
             minRequired,
-            minAge
+            minAge,
+            description
         })
         const savedCourse = await newCourse.save()
         console.log(savedCourse)
