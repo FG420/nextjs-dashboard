@@ -16,6 +16,7 @@ export default function VistaCoursesPage() {
 
     const getCourses = async () => {
         try {
+            const minimumAge = new Date().getFullYear();
             const res = await axios.get('/api/course/vista');
             const data = await res.data.data
             console.log(res.data.data)
@@ -32,7 +33,7 @@ export default function VistaCoursesPage() {
                     startingDate: i.startingDate.toLocaleString(),
                     endingDate: i.endingDate.toLocaleString(),
                     minRequired: i.minRequired,
-                    minAge: i.minAge,
+                    minAge: minimumAge - i.minAge,
                     description: '',
                     id: i._id
                 }

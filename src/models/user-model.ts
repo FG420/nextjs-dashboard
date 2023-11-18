@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -15,55 +15,42 @@ const userSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        required: true
     },
     birthDate: {
+        type: Date,
         required: true,
-        day: {
-            type: Number,
-            required: true
-        },
-        month: {
-            type: Number,
-            required: true
-        },
-        year: {
-            type: Number,
-            required: true
-        },
     },
     parentData: {
         name: {
             type: String,
-            required: [true, 'Provide name']
         },
         surname: {
             type: String,
-            required: [true, 'Provide surname']
         },
         email: {
             type: String,
-            required: [true, 'Provide email']
         },
         phoneNumber: {
             type: String,
-            required: true
         },
     },
-    notes: { type: String }
+    notes: { type: String },
+    subscribedTo: {
+        type: Schema.Types.ObjectId, ref: 'CourseModel'
+    }
 })
 
-userSchema.virtual('fullName').get(function () {
-    return `${this.name} ${this.surname}`;
-});
+export type User = {
+    name: string,
+    surname: string,
+    email: string,
+    birthDate: Date,
+    subscribedTo: string,
+    phoneNumber?: number,
+    notes?: string,
+    parentData?: Object
+}
 
-userSchema.virtual('birthDate').get(function () {
-    return `${this.birthDate.day}/${this.birthDate.month}/${this.birthDate.year}`
-})
-
-// userSchema.virtual('parentFullName').get(function () {
-//     return `${this.parentData?.name} ${this.parentData?.surname}`
-// })
 
 const UserModel = mongoose.models.users || mongoose.model('users', userSchema)
 export default UserModel

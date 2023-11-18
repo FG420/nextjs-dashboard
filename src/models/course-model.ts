@@ -27,31 +27,13 @@ const courseSchema = new mongoose.Schema({
     }
 })
 
-// courseSchema.set('toJSON', {
-//     virtuals: true,
-//     transform: (_, ret) => {
-//         delete ret._id;
-//         delete ret.__v;
-//         return ret;
-//     }
-// });
-
-// courseSchema.set('toObject', {
-//     virtuals: true,
-//     transform: (_, ret) => {
-//         delete ret._id;
-//         delete ret.__v;
-//         return ret;
-//     }
-// });
-
 
 export type Course = {
     name: string,
     startingDate: Date | string,
     endingDate: Date | string,
     minRequired: number,
-    minAge: number,
+    minAge: number, // da cambiare, mettere in formato Date cos' da poter avere maggior controllo sulle iscrizioni degli users
     description: string,
     id: ObjectId | string
 }

@@ -18,25 +18,14 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: 'Select a valid date for starting & ending' }, { status: 400 })
         }
 
-
-        // const startCourse = new Date(startingDate).toLocaleString()
-        // const endCourse = new Date(endingDate).toLocaleString()
-
-        // const newCourse = await CourseModel.create({
-        //     name,
-        //     startingDate: startCourse,
-        //     endingDate: endCourse,
-        //     minRequired
-        // })
-        // const savedCourse = await newCourse.save()
-
+        const minimumAge = new Date().getFullYear() - minAge;
 
         const newCourse = await CourseModel.create({
             name,
             startingDate,
             endingDate,
             minRequired,
-            minAge,
+            minAge: minimumAge,
             description
         })
         const savedCourse = await newCourse.save()
