@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { ObjectId, Schema } from "mongoose";
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -20,20 +20,6 @@ const userSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    parentData: {
-        name: {
-            type: String,
-        },
-        surname: {
-            type: String,
-        },
-        email: {
-            type: String,
-        },
-        phoneNumber: {
-            type: String,
-        },
-    },
     notes: { type: String },
     subscribedTo: {
         type: Schema.Types.ObjectId, ref: 'CourseModel'
@@ -44,11 +30,11 @@ export type User = {
     name: string,
     surname: string,
     email: string,
-    birthDate: Date,
+    birthDate: Date | number,
     subscribedTo: string,
-    phoneNumber?: number,
+    phoneNumber: string,
     notes?: string,
-    parentData?: Object
+    _id : ObjectId
 }
 
 

@@ -11,8 +11,7 @@ connect()
 export async function GET(req: NextRequest) {
     try {
         const reqId = await req.nextUrl.searchParams.get('_id')
-        
-        const courses = await CourseModel.find({_id: reqId})
+        const courses = await CourseModel.find({ _id: reqId })
         return NextResponse.json({ courses }, { status: 200 })
     } catch (error: any) {
         return NextResponse.json({ error: error.message }, { status: 500 });

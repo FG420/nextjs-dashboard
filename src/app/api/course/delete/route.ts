@@ -8,8 +8,8 @@ connect()
 
 export async function DELETE(req: NextRequest) {
     try {
-        const reqId = await req.json()
-        const deleteCourse = await CourseModel.findOneAndDelete({_id: reqId})
+        const reqName = await req.json()
+        const deleteCourse = await CourseModel.findOneAndDelete({name: reqName})
         if(!deleteCourse){
             return NextResponse.json({ message: 'Course not found' }, { status: 400 })
         }

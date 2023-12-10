@@ -27,6 +27,7 @@ export default function NewCoursesPage() {
             const res = await axios.post('/api/course/new', course);
             console.log(res.data);
             router.push('/')
+            router.refresh()
         } catch (error: any) {
             setError(true)
             console.log(error.message)
@@ -34,7 +35,7 @@ export default function NewCoursesPage() {
     }
 
     useEffect(() => {
-        if (course.name.length > 0 && course.startingDate.length > 0 && course.endingDate.length > 0 && course.minRequired.length !== null && course.description.length > 0) {
+        if (course.name.length > 0 && course.startingDate.length > 0 && course.endingDate.length > 0 && course.minRequired.length > 0 && course.minAge.length > 0 &&  course.description.length > 0) {
             setButtonDisabled(false)
         } else {
             setButtonDisabled(true)
@@ -83,7 +84,7 @@ export default function NewCoursesPage() {
                         <label className="block text-white font-bold mb-2 text-center" htmlFor="title">
                             Description
                         </label>
-                        <input className="w-full px-3 py-2 border border-gray-400 rounded-full text-gray-700 font-semibold" id="title" name="title" type="text" placeholder="Course's name" value={course.description} onChange={(e) => setCourse({ ...course, description: e.target.value })} required />
+                        <input className="w-full px-3 py-2 border border-gray-400 rounded-full text-gray-700 font-semibold" id="text" name="text" type="text" placeholder="Course's description" value={course.description} onChange={(e) => setCourse({ ...course, description: e.target.value })} required />
                     </div>
                     <div className="flex justify-center mt-14">
                         <button className="bg-orange-600  hover:bg-orange-700 hover:shadow-gray-400  text-white font-bold py-2 px-4 border-orange-500 border-2 rounded-full" type="submit" onClick={newCourse}>{buttonDisabled ? 'Fill the fields' : 'Create Course'}</button>

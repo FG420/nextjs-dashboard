@@ -72,7 +72,7 @@ export default function VistaCoursesPage() {
                     <p className="text-white flex justify-center font-semibold">Starting Date: {new Date(course.startingDate).toLocaleString()}</p>
                     <p className="text-white flex justify-center font-semibold">Ending Date: {new Date(course.endingDate).toLocaleString()}</p>
                     <div className='flex justify-center'>
-                        <button className=' font-bold bg-orange-600 text-white rounded-full p-2 mt-7 w-28 hover:bg-orange-400 '><Link href={`vista/${course.id}`}>Details</Link></button>
+                        <button className=' font-bold bg-orange-600 text-white rounded-full p-2 mt-7 w-28 hover:bg-orange-400 '><Link href={`courses/vista/${course.id}`}>Details</Link></button>
                         {/* <button className=' font-bold bg-orange-600 text-white rounded-full p-1 mt-7 w-28 hover:bg-orange-400 ' onChange={onDelete}>{deleteCourse ? 'Delete' : 'for deleting it go to details'}</button> */}
                     </div>
                 </div>
